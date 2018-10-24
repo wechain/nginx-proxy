@@ -1,16 +1,16 @@
 version: '3'
 services:
   nginx:
-    image: lxshpk/nginx-proxy
+    image: wechain/nginx-proxy-certbot
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
     environment:
       NGINX_PROXY_PASS: |
-        http://example.com -> http://service:8080
-        https://sub.example.com -> http://service:8081
-        http://external.example.com -> http://external.com
+        https://app.steem.racing -> http://larden:3000
+        https://devlab.steem.racing -> http://portainer:9000
+        https://steem.racing -> http://condenser:8080
 
-      CERTBOT_EMAIL: mail@example.com
+      CERTBOT_EMAIL: anybucket@outlook.com
       CERTBOT_ARGS: --dry-run
